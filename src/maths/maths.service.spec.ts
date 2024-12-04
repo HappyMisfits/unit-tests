@@ -9,7 +9,13 @@ describe('MathsService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        MathsService
+        MathsService,
+        {
+          provide: LoggerService,
+          useValue: {
+            log: jest.fn(), // Mock de la méthode log
+          },
+        },
       ],
     }).compile();
 
