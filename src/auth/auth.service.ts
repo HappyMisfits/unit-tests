@@ -7,6 +7,7 @@ export class AuthService {
 
     validateUser(username: string, password: string): boolean {
         const user = this.userService.findUserByUsername(username);
-        return user && user.password === password;
-      }
+
+        return !!user && user.password === password;
+    }
 }
